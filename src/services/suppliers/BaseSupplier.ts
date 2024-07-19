@@ -25,9 +25,24 @@ export abstract class BaseSupplier {
       return [];
     }
   }
+  async fetchHotels() {
+    const hotelData = await this.fetchSupplierData();
+    return hotelData.map(this.normalizeHotelData);
+  }
 
-  abstract fetchHotels(): any;
-  abstract normalizeHotelData(hotel: SupplierHotelInput): Hotel;
+  protected normalizeHotelData = (hotel: SupplierHotelInput): Hotel =>{
+    return {
+      id: this.getId(hotel),
+      destination_id: this.getDestinationId(hotel),
+      name: this.getName(hotel),
+      location: this.getLocation(hotel),
+      description: this.getDescription(hotel),
+      amenities: this.getAmenities(hotel),
+      images: this.getImages(hotel),
+      booking_conditions: this.getBookingConditions(hotel),
+    };
+  }
+
   abstract getId(hotel: SupplierHotelInput): string;
   abstract getDestinationId(hotel: SupplierHotelInput): number;
   abstract getName(hotel: SupplierHotelInput): string;

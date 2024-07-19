@@ -16,10 +16,6 @@ export class AcmeSupplier extends BaseSupplier {
     super("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme", "acme");
   }
 
-  async fetchHotels() {
-    const hotelData = await this.fetchSupplierData();
-    return hotelData.map(this.normalizeHotelData);
-  }
 
   getId(hotel: AcmeSupplierHotel): string {
     return hotel.Id;
@@ -65,16 +61,4 @@ export class AcmeSupplier extends BaseSupplier {
     return [];
   }
 
-  normalizeHotelData = (supplierHotel: AcmeSupplierHotel): Hotel => {
-    return {
-      id: this.getId(supplierHotel),
-      destination_id: this.getDestinationId(supplierHotel),
-      name: this.getName(supplierHotel),
-      location: this.getLocation(supplierHotel),
-      description: this.getDescription(supplierHotel),
-      amenities: this.getAmenities(supplierHotel),
-      images: this.getImages(supplierHotel),
-      booking_conditions: this.getBookingConditions(supplierHotel),
-    };
-  };
 }

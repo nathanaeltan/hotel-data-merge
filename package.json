@@ -18,6 +18,13 @@
   "bugs": {
     "url": "https://github.com/nathanaeltan/hotel-data-merge/issues"
   },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/test/**/*.test.ts"
+    ]
+  },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/express": "^4.17.21",

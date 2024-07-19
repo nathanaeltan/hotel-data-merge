@@ -8,6 +8,8 @@ export class StringUtils {
   }
 
   static removeSpaceArray(arr: string[]): string[] {
-    return arr.map((str) => StringUtils.removeSpace(str));
+    return arr
+      .map((str) => StringUtils.removeSpace(str))
+      .filter((str) => str !== "");
   }
 }
