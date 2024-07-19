@@ -36,8 +36,8 @@ export class PaperfliesSupplier extends BaseSupplier {
 
   getAmenities(hotel: PaperfliesSupplierHotel) {
     return {
-      general: StringUtils.capitalizeEveryWord(hotel.amenities.general),
-      room:  StringUtils.capitalizeEveryWord(hotel.amenities.room),
+      general: StringUtils.normalizeAmenitities(hotel.amenities.general),
+      room:  StringUtils.normalizeAmenitities(hotel.amenities.room),
     };
   }
 
@@ -45,11 +45,11 @@ export class PaperfliesSupplier extends BaseSupplier {
     return {
       rooms: hotel.images.rooms.map((image) => ({
         link: image.link,
-        description: image.caption,
+        description: StringUtils.trimAndCapitalize(image.caption),
       })),
       site: hotel.images.site.map((image) => ({
         link: image.link,
-        description: image.caption,
+        description: StringUtils.trimAndCapitalize(image.caption),
       })),
       amenities: [],
     };

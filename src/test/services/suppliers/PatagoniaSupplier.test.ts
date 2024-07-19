@@ -58,7 +58,7 @@ describe("PatagoniaSupplier", () => {
 
   test("getAmenities should return the hotel's amenities", () => {
     const expectedAmenities = {
-      general: ["Pool", "Free Wifi"],
+      general: ["Pool", "Free wifi"],
       room: [],
     };
     expect(patagoniaSupplier.getAmenities(mockHotel)).toEqual(expectedAmenities);
@@ -67,13 +67,13 @@ describe("PatagoniaSupplier", () => {
   test("getImages should return the hotel's images", () => {
     const expectedImages = {
       rooms: [
-        { link: "http://example.com/room1.jpg", description: "Room view" },
-        { link: "http://example.com/room2.jpg", description: "Another room view" }
+        { link: "http://example.com/room1.jpg", description: "ROOM VIEW" },
+        { link: "http://example.com/room2.jpg", description: "ANOTHER ROOM VIEW" }
       ],
       site: [],
       amenities: [
-        { link: "http://example.com/spa.jpg", description: "Spa" },
-        { link: "http://example.com/wifi.jpg", description: "Free Wifi" }
+        { link: "http://example.com/spa.jpg", description: "SPA" },
+        { link: "http://example.com/wifi.jpg", description: "FREE WIFI" }
       ],
     };
     expect(patagoniaSupplier.getImages(mockHotel)).toEqual(expectedImages);

@@ -34,7 +34,7 @@ export class AcmeSupplier extends BaseSupplier {
 
   getAmenities(hotel: AcmeSupplierHotel) {
     return {
-      general: StringUtils.createSpaceBetweenWordArray(hotel.Facilities),
+      general: StringUtils.normalizeAmenitities(hotel.Facilities),
       room: [],
     };
   }

@@ -34,7 +34,7 @@ export class PatagoniaSupplier extends BaseSupplier {
 
   getAmenities(hotel: PatagoniaSupplierHotel) {
     return {
-      general: StringUtils.capitalizeEveryWord(hotel.amenities || []) ,
+      general: StringUtils.normalizeAmenitities(hotel.amenities || []) ,
       room: [],
     };
   }
@@ -43,12 +43,12 @@ export class PatagoniaSupplier extends BaseSupplier {
     return {
       rooms: hotel.images.rooms.map((image) => ({
         link: image.url,
-        description: StringUtils.trimString(image.description),
+        description: StringUtils.trimAndCapitalize(image.description),
       })),
       site: [],
       amenities: hotel.images.amenities.map((image) => ({
         link: image.url,
-        description: StringUtils.trimString(image.description),
+        description: StringUtils.trimAndCapitalize(image.description),
       })),
     };
   }
