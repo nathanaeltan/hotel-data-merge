@@ -104,9 +104,9 @@ If hotel_ids are prioritized over destination_id, IE destination_id is ignored i
 | ---- | ---- |
 | id | None |
 | destination_id | None |
-| name | Longer name gets priority |
+| name | Longer name gets priority, trimmed whitespace |
 | location | Priority for values that are truthy, countries are normalized to convert from country codes to country names capitalized. Addresses are upper-cased for consistency |
-| description | Longer descriptions are prioritized |
+| description | Longer descriptions are prioritized, trimmed whitespace |
 | amenities | Amenities are normalized by separating joined together words, and only capitalizing the first word e.g BusinessCenter is Business center |
 | images | Descriptions are uppercased for consistency, duplicate links are filtered out |
 | booking_conditions | Longer descriptions are prioritized |
