@@ -80,6 +80,7 @@ hotel_ids are prioritized over destination_id, e.g destination_id is ignored if 
 **name**: string
 
 **location**: object
+
     * lat: number
     * lng: number
     * address: string
@@ -89,10 +90,12 @@ hotel_ids are prioritized over destination_id, e.g destination_id is ignored if 
 **description**: string
 
 **amenities**: object
+
     * general: string[]
     * room: string[]
 
 **images**: object
+
     * rooms: object[]
         * link: string
         * description: string
