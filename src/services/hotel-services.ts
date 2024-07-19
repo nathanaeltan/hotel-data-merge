@@ -1,12 +1,14 @@
 import { Hotel } from "../models/hotel-interfaces";
 import { AcmeSupplier } from "./suppliers/AcmeSupplier";
+import { PatagoniaSupplier } from "./suppliers/PatagoniaSupplier";
 
 class HotelService {
     private suppliers: any[];
 
     constructor() {
         this.suppliers = [
-            new AcmeSupplier(),
+            // new AcmeSupplier(),
+            new PatagoniaSupplier(),
         ]
     }
 
