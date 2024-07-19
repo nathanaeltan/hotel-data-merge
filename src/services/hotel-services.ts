@@ -1,5 +1,6 @@
 import { Hotel } from "../models/hotel-interfaces";
 import { AcmeSupplier } from "./suppliers/AcmeSupplier";
+import { PaperfliesSupplier } from "./suppliers/PaperfliesSupplier";
 import { PatagoniaSupplier } from "./suppliers/PatagoniaSupplier";
 
 class HotelService {
@@ -7,15 +8,16 @@ class HotelService {
 
     constructor() {
         this.suppliers = [
-            // new AcmeSupplier(),
+            new AcmeSupplier(),
             new PatagoniaSupplier(),
+            new PaperfliesSupplier(),
         ]
     }
 
     async getHotels(hotelIds: string[], destinationIds: string[]) {
         const promises = this.suppliers.map(supplier => supplier.fetchHotels());
         const results = await Promise.all(promises);
-        const hotels = results.flat();
+        const hotels = results.flat() as Hotel[];
         console.log(hotels, 'THOTELSLSLS')
         return hotels;
     }

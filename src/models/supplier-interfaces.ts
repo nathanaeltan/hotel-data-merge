@@ -13,7 +13,6 @@ export interface AcmeSupplierHotel {
   Facilities: string[];
 }
 
-
 // Patagonia Supplier interfaces
 export interface PatagoniaImage {
   url: string;
@@ -36,6 +35,37 @@ export interface PatagoniaSupplierHotel {
   images: PatagoniaImages;
 }
 
+// Paperflies interfaces
+interface PaperfliesLocation {
+  address: string;
+  country: string;
+}
+
+interface PaperfliesAmenities {
+  general: string[];
+  room: string[];
+}
+
+interface PaperfliesImage {
+  link: string;
+  caption: string;
+}
+
+interface PaperfliesImages {
+  rooms: PaperfliesImage[];
+  site: PaperfliesImage[];
+}
+
+export interface PaperfliesSupplierHotel {
+  hotel_id: string;
+  destination_id: number;
+  hotel_name: string;
+  location: PaperfliesLocation;
+  details: string;
+  amenities: PaperfliesAmenities;
+  images: PaperfliesImages;
+  booking_conditions: string[];
+}
 
 // Supplier Input types
-export type SupplierHotelInput = AcmeSupplierHotel | PatagoniaSupplierHotel;
+export type SupplierHotelInput = AcmeSupplierHotel | PatagoniaSupplierHotel | PaperfliesSupplierHotel;

@@ -23,7 +23,7 @@ export class PatagoniaSupplier extends BaseSupplier {
     return {
       lat: hotel.lat,
       lng: hotel.lng,
-      address: StringUtils.trimString(hotel.address || ""),
+      address: StringUtils.trimAndCapitalize(hotel.address || ""),
       city: "",
       country: "",
     };

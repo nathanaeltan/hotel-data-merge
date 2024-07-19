@@ -12,4 +12,16 @@ export class StringUtils {
       .map((str) => StringUtils.removeSpace(str))
       .filter((str) => str !== "");
   }
+
+  static createSpaceBetweenWords(str: string): string {
+    return str.replace(/([A-Z])/g, ' $1').trim();
+  }
+
+  static createSpaceBetweenWordArray(arr: string[]): string[] {
+    return arr.map((str) => StringUtils.createSpaceBetweenWords(str)).filter(str => str !== "");
+  }
+
+  static trimAndCapitalize(str: string): string {
+    return str.toUpperCase().trim();
+  }
 }

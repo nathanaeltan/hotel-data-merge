@@ -45,7 +45,7 @@ describe("PatagoniaSupplier", () => {
     const expectedLocation = {
       lat: -33.0,
       lng: 65.0,
-      address: "456 Patagonia St",
+      address: "456 PATAGONIA ST",
       city: "",
       country: "",
     };

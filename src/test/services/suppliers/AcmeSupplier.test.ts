@@ -38,7 +38,7 @@ describe("AcmeSupplier", () => {
     const expectedLocation = {
       lat: 45.0,
       lng: -45.0,
-      address: "123 Test St",
+      address: "123 TEST ST",
       city: "TestCity",
       country: "TestCountry",
     };

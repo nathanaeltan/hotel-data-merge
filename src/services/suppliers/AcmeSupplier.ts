@@ -1,8 +1,3 @@
-import {
-  Amenities,
-  ImageCategory,
-  Location,
-} from "../../models/hotel-interfaces";
 import { BaseSupplier } from "./BaseSupplier";
 import { AcmeSupplierHotel } from "../../models/supplier-interfaces";
 import { StringUtils } from "../../utils/string-utils";
@@ -12,39 +7,39 @@ export class AcmeSupplier extends BaseSupplier {
     super("https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/acme", "acme");
   }
 
-  getId(hotel: AcmeSupplierHotel): string {
+  getId(hotel: AcmeSupplierHotel) {
     return hotel.Id;
   }
-  getName(hotel: AcmeSupplierHotel): string {
+  getName(hotel: AcmeSupplierHotel) {
     return StringUtils.trimString(hotel.Name);
   }
 
-  getDestinationId(hotel: AcmeSupplierHotel): number {
+  getDestinationId(hotel: AcmeSupplierHotel) {
     return hotel.DestinationId;
   }
 
-  getLocation(hotel: AcmeSupplierHotel): Location {
+  getLocation(hotel: AcmeSupplierHotel) {
     return {
       lat: hotel.Latitude || 0,
       lng: hotel.Longitude || 0,
-      address: StringUtils.trimString(hotel.Address),
+      address: StringUtils.trimAndCapitalize(hotel.Address),
       city: hotel.City,
       country: hotel.Country,
     };
   }
 
-  getDescription(hotel: AcmeSupplierHotel): string {
+  getDescription(hotel: AcmeSupplierHotel) {
     return StringUtils.trimString(hotel.Description);
   }
 
-  getAmenities(hotel: AcmeSupplierHotel): Amenities {
+  getAmenities(hotel: AcmeSupplierHotel) {
     return {
-      general: StringUtils.removeSpaceArray(hotel.Facilities),
+      general: StringUtils.createSpaceBetweenWordArray(hotel.Facilities),
       room: [],
     };
   }
 
-  getImages(_hotel: AcmeSupplierHotel): ImageCategory {
+  getImages(_hotel: AcmeSupplierHotel) {
     return {
       rooms: [],
       site: [],
@@ -52,7 +47,7 @@ export class AcmeSupplier extends BaseSupplier {
     };
   }
 
-  getBookingConditions(_hotel: AcmeSupplierHotel): string[] {
+  getBookingConditions(_hotel: AcmeSupplierHotel){
     return [];
   }
 }

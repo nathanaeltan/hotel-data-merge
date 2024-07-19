@@ -60,4 +60,64 @@ describe("StringUtils", () => {
       expect(StringUtils.removeSpaceArray(input)).toEqual(expected);
     });
   });
+
+  describe("createSpaceBetweenWords", () => {
+    it("should insert a space before each uppercase letter in a string", () => {
+      const input = "HotelMergerData";
+      const expected = "Hotel Merger Data";
+      expect(StringUtils.createSpaceBetweenWords(input)).toBe(expected);
+    });
+
+    it("should not insert a space before the first letter if it is uppercase", () => {
+      const input = "DataMerge";
+      const expected = "Data Merge";
+      expect(StringUtils.createSpaceBetweenWords(input)).toBe(expected);
+    });
+
+    it("should return the original string if there are no uppercase letters", () => {
+      const input = "hotel merger";
+      const expected = "hotel merger";
+      expect(StringUtils.createSpaceBetweenWords(input)).toBe(expected);
+    });
+  });
+
+  describe("createSpaceBetweenWordArray", () => {
+    it("should insert a space before each uppercase letter in each string of the array", () => {
+      const input = ["HotelMerger", "DataMerge"];
+      const expected = ["Hotel Merger", "Data Merge"];
+      expect(StringUtils.createSpaceBetweenWordArray(input)).toEqual(expected);
+    });
+
+    it("should return an empty array if the input array is empty", () => {
+      const input: string[] = [];
+      const expected: string[] = [];
+      expect(StringUtils.createSpaceBetweenWordArray(input)).toEqual(expected);
+    });
+
+    it("should filter out empty strings after processing", () => {
+      const input = ["", "HotelMerger", "", "DataMerge", ""];
+      const expected = ["Hotel Merger", "Data Merge"];
+      expect(StringUtils.createSpaceBetweenWordArray(input)).toEqual(expected);
+    });
+  });
+
+  describe("trimAndCapitalize", () => {
+    it("should trim and capitalize the input string", () => {
+      const input = "  hotel merger  ";
+      const expected = "HOTEL MERGER";
+      expect(StringUtils.trimAndCapitalize(input)).toBe(expected);
+    });
+
+    it("should return an empty string if the input is empty", () => {
+      const input = "";
+      const expected = "";
+      expect(StringUtils.trimAndCapitalize(input)).toBe(expected);
+    });
+
+    it("should return an empty string if the input is only spaces", () => {
+      const input = "   ";
+      const expected = "";
+      expect(StringUtils.trimAndCapitalize(input)).toBe(expected);
+    });
+  });
 });
