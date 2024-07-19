@@ -15,7 +15,7 @@ describe("PatagoniaSupplier", () => {
       lng: 65.0,
       address: "456 Patagonia St",
       info: "A nice hotel in Patagonia",
-      amenities: ["Pool", "Free WiFi"],
+      amenities: ["Pool", "Free Wifi"],
       images: {
         rooms: [
           { url: "http://example.com/room1.jpg", description: "Room view" },
@@ -23,7 +23,7 @@ describe("PatagoniaSupplier", () => {
         ],
         amenities: [
           { url: "http://example.com/spa.jpg", description: "Spa" },
-          { url: "http://example.com/wifi.jpg", description: "Free WiFi" }
+          { url: "http://example.com/wifi.jpg", description: "Free Wifi" }
         ]
       }
     };
@@ -58,7 +58,7 @@ describe("PatagoniaSupplier", () => {
 
   test("getAmenities should return the hotel's amenities", () => {
     const expectedAmenities = {
-      general: ["Pool", "Free WiFi"],
+      general: ["Pool", "Free Wifi"],
       room: [],
     };
     expect(patagoniaSupplier.getAmenities(mockHotel)).toEqual(expectedAmenities);
@@ -73,7 +73,7 @@ describe("PatagoniaSupplier", () => {
       site: [],
       amenities: [
         { link: "http://example.com/spa.jpg", description: "Spa" },
-        { link: "http://example.com/wifi.jpg", description: "Free WiFi" }
+        { link: "http://example.com/wifi.jpg", description: "Free Wifi" }
       ],
     };
     expect(patagoniaSupplier.getImages(mockHotel)).toEqual(expectedImages);

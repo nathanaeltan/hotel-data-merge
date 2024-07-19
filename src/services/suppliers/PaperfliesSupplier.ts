@@ -36,8 +36,8 @@ export class PaperfliesSupplier extends BaseSupplier {
 
   getAmenities(hotel: PaperfliesSupplierHotel) {
     return {
-      general: StringUtils.removeSpaceArray(hotel.amenities.general),
-      room: hotel.amenities.room,
+      general: StringUtils.capitalizeEveryWord(hotel.amenities.general),
+      room:  StringUtils.capitalizeEveryWord(hotel.amenities.room),
     };
   }
 

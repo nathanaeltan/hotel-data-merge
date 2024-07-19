@@ -34,7 +34,7 @@ export class PatagoniaSupplier extends BaseSupplier {
 
   getAmenities(hotel: PatagoniaSupplierHotel) {
     return {
-      general: hotel.amenities || [] ,
+      general: StringUtils.capitalizeEveryWord(hotel.amenities || []) ,
       room: [],
     };
   }

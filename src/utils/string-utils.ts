@@ -24,4 +24,13 @@ export class StringUtils {
   static trimAndCapitalize(str: string): string {
     return str.toUpperCase().trim();
   }
+
+  static capitalizeEveryWord(items: string[]): string[] {
+    return items.map(item =>
+        item
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ')
+    );
+}
 }
