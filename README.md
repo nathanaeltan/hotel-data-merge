@@ -69,23 +69,29 @@ There is only one API end point
     1. hotel_ids: array of strings
     2. destination_id: number
 
-If hotel_ids are prioritized over destination_id, IE destination_id is ignored if hotel_ids are present
+hotel_ids are prioritized over destination_id, e.g destination_id is ignored if hotel_ids are present
 
 #### Response body and merge strategy
 
 **id**: string
+
 **destination_id**: number
+
 **name**: string
+
 **location**: object
     * lat: number
     * lng: number
     * address: string
     * city: string
     * country: string
+
 **description**: string
+
 **amenities**: object
     * general: string[]
     * room: string[]
+
 **images**: object
     * rooms: object[]
         * link: string
@@ -96,6 +102,7 @@ If hotel_ids are prioritized over destination_id, IE destination_id is ignored i
     * amenities: object[]
         * link: string
         * description: string
+
 **booking_conditions**: string[]
 
 

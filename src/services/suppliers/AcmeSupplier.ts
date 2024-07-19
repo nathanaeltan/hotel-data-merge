@@ -48,7 +48,7 @@ export class AcmeSupplier extends BaseSupplier {
     };
   }
 
-  getBookingConditions(_hotel: AcmeSupplierHotel){
+  getBookingConditions(_hotel: AcmeSupplierHotel) {
     return [];
   }
 }
