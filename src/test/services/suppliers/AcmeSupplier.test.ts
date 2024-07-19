@@ -1,13 +1,5 @@
 import { AcmeSupplierHotel } from "../../../models/supplier-interfaces";
 import { AcmeSupplier } from "../../../services/suppliers/AcmeSupplier";
-// import { StringUtils } from "../../../utils/string-utils";
-
-// jest.mock("../../../utils/string-utils", () => ({
-//   StringUtils: {
-//     trimString: jest.fn((input) => input.trim()),
-//     removeSpaceArray: jest.fn((input) => input.filter((i: string) => i.trim())),
-//   },
-// }));
 
 describe("AcmeSupplier", () => {
   let acmeSupplier: AcmeSupplier;

@@ -1,5 +1,6 @@
 import { PatagoniaSupplierHotel } from "../../models/supplier-interfaces";
 import { BaseSupplier } from "./BaseSupplier";
+import { StringUtils } from "../../utils/string-utils";
 
 export class PatagoniaSupplier extends BaseSupplier {
   constructor() {
@@ -13,7 +14,7 @@ export class PatagoniaSupplier extends BaseSupplier {
     return hotel.id;
   }
   getName(hotel: PatagoniaSupplierHotel) {
-    return hotel.name;
+    return StringUtils.trimString(hotel.name);
   }
   getDestinationId(hotel: PatagoniaSupplierHotel) {
     return hotel.destination;
@@ -22,7 +23,7 @@ export class PatagoniaSupplier extends BaseSupplier {
     return {
       lat: hotel.lat,
       lng: hotel.lng,
-      address: hotel.address || "",
+      address: StringUtils.trimString(hotel.address || ""),
       city: "",
       country: "",
     };
@@ -33,7 +34,7 @@ export class PatagoniaSupplier extends BaseSupplier {
 
   getAmenities(hotel: PatagoniaSupplierHotel) {
     return {
-      general: hotel.amenities || [],
+      general: hotel.amenities || [] ,
       room: [],
     };
   }
@@ -42,12 +43,12 @@ export class PatagoniaSupplier extends BaseSupplier {
     return {
       rooms: hotel.images.rooms.map((image) => ({
         link: image.url,
-        description: image.description,
+        description: StringUtils.trimString(image.description),
       })),
       site: [],
       amenities: hotel.images.amenities.map((image) => ({
         link: image.url,
-        description: image.description,
+        description: StringUtils.trimString(image.description),
       })),
     };
   }

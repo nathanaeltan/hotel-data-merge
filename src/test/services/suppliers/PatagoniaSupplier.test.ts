@@ -53,12 +53,12 @@ describe("PatagoniaSupplier", () => {
   });
 
   test("getDescription should return the hotel's description", () => {
-    expect(patagoniaSupplier.getDescription(mockHotel)).toBe("A cozy hotel in Patagonia");
+    expect(patagoniaSupplier.getDescription(mockHotel)).toBe("A nice hotel in Patagonia");
   });
 
   test("getAmenities should return the hotel's amenities", () => {
     const expectedAmenities = {
-      general: ["Spa", "Free WiFi"],
+      general: ["Pool", "Free WiFi"],
       room: [],
     };
     expect(patagoniaSupplier.getAmenities(mockHotel)).toEqual(expectedAmenities);
