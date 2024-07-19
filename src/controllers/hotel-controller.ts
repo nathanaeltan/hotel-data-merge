@@ -21,6 +21,6 @@ export class HotelController {
       return res.status(200).json(hotels);
     }
 
-    return res.status(400).json({ message: "Invalid request" });
+    return res.status(400).json({ error: "Invalid request" });
   }
 }

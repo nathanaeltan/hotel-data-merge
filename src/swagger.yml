@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  title: Hotel Data Merger API
+  version: 1.0.0
+  description: API documentation for hotel data merger
+paths:
+  /api/hotel:
+    post:
+      tags:
+        - Hotel
+      summary: Get List of hotels by ids or destination ids
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hotel_ids:
+                  type: array
+                  items:
+                    type: string
+                destination_id:
+                  type: number
+      responses:
+        '200':
+          description: Hotel details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "iJhz"
+                  destination_id:
+                    type: integer
+                    example: 5432
+                  name:
+                    type: string
+                    example: "Beach Villas Singapore"
+                  location:
+                    type: object
+                    properties:
+                      lat:
+                        type: number
+                        format: float
+                        example: 1.264751
+                      lng:
+                        type: number
+                        format: float
+                        example: 103.824006
+                      address:
+                        type: string
+                        example: "8 SENTOSA GATEWAY, BEACH VILLAS"
+                      city:
+                        type: string
+                        example: "Singapore"
+                      country:
+                        type: string
+                        example: "Singapore"
+                  description:
+                    type: string
+                    example: "Located at the western tip of Resorts World Sentosa, guests at the Beach Villas are guaranteed privacy while they enjoy spectacular views of glittering waters. Guests will find themselves in paradise with this series of exquisite tropical sanctuaries, making it the perfect setting for an idyllic retreat. Within each villa, guests will discover living areas and bedrooms that open out to mini gardens, private timber sundecks and verandahs elegantly framing either lush greenery or an expanse of sea. Guests are assured of a superior slumber with goose feather pillows and luxe mattresses paired with 400 thread count Egyptian cotton bed linen, tastefully paired with a full complement of luxurious in-room amenities and bathrooms boasting rain showers and free-standing tubs coupled with an exclusive array of ESPA amenities and toiletries. Guests also get to enjoy complimentary day access to the facilities at Asia’s flagship spa – the world-renowned ESPA."
+                  amenities:
+                    type: object
+                    properties:
+                      general:
+                        type: array
+                        items:
+                          type: string
+                        example: ["Pool", "Business centre", "Wifi"]
+                      room:
+                        type: array
+                        items:
+                          type: string
+                        example: ["Television", "Coffee maker"]
+                  images:
+                    type: object
+                    properties:
+                      rooms:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            link:
+                              type: string
+                              format: uri
+                              example: "https://d2ey9sqrvkqdfs.cloudfront.net/0qZF/2.jpg"
+                            description:
+                              type: string
+                              example: "DOUBLE ROOM"
+                      site:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            link:
+                              type: string
+                              format: uri
+                              example: "https://d2ey9sqrvkqdfs.cloudfront.net/0qZF/1.jpg"
+                            description:
+                              type: string
+                              example: "FRONT"
+                      amenities:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            link:
+                              type: string
+                              format: uri
+                              example: "https://d2ey9sqrvkqdfs.cloudfront.net/0qZF/0.jpg"
+                            description:
+                              type: string
+                              example: "RWS"
+                  booking_conditions:
+                    type: array
+                    items:
+                      type: string
+                      example: [
+                        "All children are welcome. One child under 12 years stays free of charge when using existing beds. One child under 2 years stays free of charge in a child's cot/crib. One child under 4 years stays free of charge when using existing beds. One older child or adult is charged SGD 82.39 per person per night in an extra bed. The maximum number of children's cots/cribs in a room is 1. There is no capacity for extra beds in the room.",
+                        "Pets are not allowed.",
+                        "WiFi is available in all areas and is free of charge.",
+                      ]
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid request"
