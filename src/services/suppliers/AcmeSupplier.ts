@@ -1,6 +1,7 @@
 import { BaseSupplier } from "./BaseSupplier";
 import { AcmeSupplierHotel } from "../../models/supplier-interfaces";
 import { StringUtils } from "../../utils/string-utils";
+import { NormalizeUtils } from "../../utils/normalize-data-utils";
 
 export class AcmeSupplier extends BaseSupplier {
   constructor() {
@@ -24,7 +25,7 @@ export class AcmeSupplier extends BaseSupplier {
       lng: hotel.Longitude || 0,
       address: StringUtils.trimAndCapitalize(hotel.Address),
       city: hotel.City,
-      country: hotel.Country,
+      country: NormalizeUtils.normalizeCountry(hotel.Country),
     };
   }
 
@@ -34,7 +35,7 @@ export class AcmeSupplier extends BaseSupplier {
 
   getAmenities(hotel: AcmeSupplierHotel) {
     return {
-      general: StringUtils.normalizeAmenitities(hotel.Facilities),
+      general: NormalizeUtils.normalizeAmenitities(hotel.Facilities),
       room: [],
     };
   }

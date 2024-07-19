@@ -1,6 +1,7 @@
 import { PatagoniaSupplierHotel } from "../../models/supplier-interfaces";
 import { BaseSupplier } from "./BaseSupplier";
 import { StringUtils } from "../../utils/string-utils";
+import { NormalizeUtils } from "../../utils/normalize-data-utils";
 
 export class PatagoniaSupplier extends BaseSupplier {
   constructor() {
@@ -34,7 +35,7 @@ export class PatagoniaSupplier extends BaseSupplier {
 
   getAmenities(hotel: PatagoniaSupplierHotel) {
     return {
-      general: StringUtils.normalizeAmenitities(hotel.amenities || []) ,
+      general: NormalizeUtils.normalizeAmenitities(hotel.amenities || []) ,
       room: [],
     };
   }

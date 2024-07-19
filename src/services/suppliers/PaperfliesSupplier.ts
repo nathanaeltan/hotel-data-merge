@@ -1,6 +1,7 @@
 import { PaperfliesSupplierHotel } from "../../models/supplier-interfaces";
 import { BaseSupplier } from "./BaseSupplier";
 import { StringUtils } from "../../utils/string-utils";
+import { NormalizeUtils } from "../../utils/normalize-data-utils";
 
 export class PaperfliesSupplier extends BaseSupplier {
   constructor() {
@@ -24,7 +25,7 @@ export class PaperfliesSupplier extends BaseSupplier {
   getLocation(hotel: PaperfliesSupplierHotel) {
     return {
       address: StringUtils.trimAndCapitalize(hotel.location.address),
-      country: hotel.location.country,
+      country: NormalizeUtils.normalizeCountry(hotel.location.country),
       lat: 0,
       lng: 0,
       city: "",
@@ -36,8 +37,8 @@ export class PaperfliesSupplier extends BaseSupplier {
 
   getAmenities(hotel: PaperfliesSupplierHotel) {
     return {
-      general: StringUtils.normalizeAmenitities(hotel.amenities.general),
-      room:  StringUtils.normalizeAmenitities(hotel.amenities.room),
+      general: NormalizeUtils.normalizeAmenitities(hotel.amenities.general),
+      room:  NormalizeUtils.normalizeAmenitities(hotel.amenities.room),
     };
   }
 
