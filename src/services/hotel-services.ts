@@ -32,7 +32,6 @@ class HotelService {
     // Check cache first
     const cachedHotels = hotelIds.map(id => this.cache.get(id)).filter(hotel => hotel !==undefined);
     if(cachedHotels.length === hotelIds.length) {
-      console.log("FOUND THEM ALL")
       return cachedHotels as Hotel[];
     }
     const hotels = await this.fetchAndMergeHotels();
