@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.ts",
+    "build": "./node_modules/.bin/tsc",
+    "build:watch": "./node_modules/.bin/tsc --watch",
+    "start": "node ./build/server",
     "dev": "nodemon --watch src --exec ts-node src/server.ts",
     "test": "jest"
   },
