@@ -16,6 +16,13 @@ Server side application to merge hotel data from different sources and return no
 - **[Jest](https://jestjs.io/)**: JavaScript Testing Framework with a focus on simplicity.
 - **[Swagger](https://swagger.io/)**: For API documentation
 
+#### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- **Node.js**: This project requires Node.js to run. Download and install it from [https://nodejs.org/](https://nodejs.org/). This project has been tested with Node.js version 16.x.
+- **npm**: npm is used to manage the dependencies of this project. It comes bundled with Node.js, so when you install Node.js, you automatically get npm installed on your system.
+
 #### Installation
 To set up this project locally, follow these steps:
 
