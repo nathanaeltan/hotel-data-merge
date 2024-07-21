@@ -30,8 +30,10 @@ class HotelService {
 
   async getHotelsById(hotelIds: string[]): Promise<Hotel[]> {
     // Check cache first
-    const cachedHotels = hotelIds.map(id => this.cache.get(id)).filter(hotel => hotel !==undefined);
-    if(cachedHotels.length === hotelIds.length) {
+    const cachedHotels = hotelIds
+      .map((id) => this.cache.get(id))
+      .filter((hotel) => hotel !== undefined);
+    if (cachedHotels.length === hotelIds.length) {
       return cachedHotels as Hotel[];
     }
     const hotels = await this.fetchAndMergeHotels();
@@ -40,17 +42,21 @@ class HotelService {
     return hotels.filter((hotel) => hotelIds.includes(hotel.id));
   }
 
-
   async getHotelsByDestinationId(destinationId: number): Promise<Hotel[]> {
     // check cache first
     const cachedHotels = this.cache.get(`destination_${destinationId}`);
-    if(cachedHotels) {
+    if (cachedHotels) {
       return cachedHotels as Hotel[];
     }
     const hotels = await this.fetchAndMergeHotels();
-    const filteredHotelByDestinationId = hotels.filter((hotel) => hotel.destination_id === destinationId);
-    this.cache.set(`destination_${destinationId}`, filteredHotelByDestinationId);
-    return filteredHotelByDestinationId
+    const filteredHotelByDestinationId = hotels.filter(
+      (hotel) => hotel.destination_id === destinationId,
+    );
+    this.cache.set(
+      `destination_${destinationId}`,
+      filteredHotelByDestinationId,
+    );
+    return filteredHotelByDestinationId;
   }
 }
 

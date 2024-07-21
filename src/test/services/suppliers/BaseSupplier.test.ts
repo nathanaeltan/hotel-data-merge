@@ -9,7 +9,7 @@ class MockSupplier extends BaseSupplier {
   constructor() {
     super("http://mocksupplier.com", "MockSupplier");
   }
-//   For the sake of testing protected method
+  //   For the sake of testing protected method
   public async testFetchSupplierData() {
     return this.fetchSupplierData();
   }

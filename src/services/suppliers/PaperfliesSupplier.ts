@@ -7,7 +7,7 @@ export class PaperfliesSupplier extends BaseSupplier {
   constructor() {
     super(
       "https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/paperflies",
-      "paperflies"
+      "paperflies",
     );
   }
 
@@ -38,7 +38,7 @@ export class PaperfliesSupplier extends BaseSupplier {
   getAmenities(hotel: PaperfliesSupplierHotel) {
     return {
       general: NormalizeUtils.normalizeAmenitities(hotel.amenities.general),
-      room:  NormalizeUtils.normalizeAmenitities(hotel.amenities.room),
+      room: NormalizeUtils.normalizeAmenitities(hotel.amenities.room),
     };
   }
 

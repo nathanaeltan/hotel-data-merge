@@ -7,7 +7,7 @@ export class PatagoniaSupplier extends BaseSupplier {
   constructor() {
     super(
       "https://5f2be0b4ffc88500167b85a0.mockapi.io/suppliers/patagonia",
-      "patagonia"
+      "patagonia",
     );
   }
 
@@ -35,7 +35,7 @@ export class PatagoniaSupplier extends BaseSupplier {
 
   getAmenities(hotel: PatagoniaSupplierHotel) {
     return {
-      general: NormalizeUtils.normalizeAmenitities(hotel.amenities || []) ,
+      general: NormalizeUtils.normalizeAmenitities(hotel.amenities || []),
       room: [],
     };
   }

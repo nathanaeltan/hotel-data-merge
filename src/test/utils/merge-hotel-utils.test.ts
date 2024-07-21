@@ -137,7 +137,7 @@ describe("MergeUtil", () => {
       ];
       const result = MergeUtil.mergeBookingConditions(
         currentHotel,
-        mergingHotel
+        mergingHotel,
       );
       expect(result).toEqual(expectedConditions);
     });

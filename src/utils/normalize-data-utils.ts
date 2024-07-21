@@ -45,7 +45,10 @@ export class NormalizeUtils {
       Japan: "Japan",
     };
 
-    const normalizedCountry = country.length > 2 ? StringUtils.capitalizeFirstLetter(country.trim()): country.toUpperCase();
+    const normalizedCountry =
+      country.length > 2
+        ? StringUtils.capitalizeFirstLetter(country.trim())
+        : country.toUpperCase();
     return countryMap[normalizedCountry] || country;
   }
 }

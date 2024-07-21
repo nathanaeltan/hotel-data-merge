@@ -23,22 +23,22 @@ export class MergeUtil {
         // Merge Names
         MergeUtil.hotelMap[id].name = MergeUtil.mergeNames(
           currentHotel,
-          mergingHotel
+          mergingHotel,
         );
         // Merge Locations
         MergeUtil.hotelMap[id].location = MergeUtil.mergeLocations(
           currentHotel,
-          mergingHotel
+          mergingHotel,
         );
         // Merge Descriptions
         MergeUtil.hotelMap[id].description = MergeUtil.mergeDescriptions(
           currentHotel,
-          mergingHotel
+          mergingHotel,
         );
         // Merge amenities
         MergeUtil.hotelMap[id].amenities = MergeUtil.mergeAmenities(
           currentHotel,
-          mergingHotel
+          mergingHotel,
         );
         // Merge Booking Conditions
         MergeUtil.hotelMap[id].booking_conditions =
@@ -46,7 +46,7 @@ export class MergeUtil {
         // Merge Images
         MergeUtil.hotelMap[id].images = MergeUtil.mergeImages(
           currentHotel,
-          mergingHotel
+          mergingHotel,
         );
       }
     });
@@ -62,7 +62,7 @@ export class MergeUtil {
 
     const mergeAndRemoveDuplicates = (
       currentImages: Image[],
-      mergingImages: Image[]
+      mergingImages: Image[],
     ): Image[] => {
       const allImages = [...currentImages, ...mergingImages];
       const uniqueImages: Image[] = [];
@@ -81,26 +81,26 @@ export class MergeUtil {
     // Merge and deduplicate for each category
     image.rooms = mergeAndRemoveDuplicates(
       currentHotel.images.rooms,
-      mergingHotel.images.rooms
+      mergingHotel.images.rooms,
     );
     image.site = mergeAndRemoveDuplicates(
       currentHotel.images.site,
-      mergingHotel.images.site
+      mergingHotel.images.site,
     );
     image.amenities = mergeAndRemoveDuplicates(
       currentHotel.images.amenities,
-      mergingHotel.images.amenities
+      mergingHotel.images.amenities,
     );
     return image;
   }
   // Booking conditions
   static mergeBookingConditions(
     currentHotel: Hotel,
-    mergingHotel: Hotel
+    mergingHotel: Hotel,
   ): string[] {
     return MergeUtil.createUniqueSet(
       currentHotel.booking_conditions,
-      mergingHotel.booking_conditions
+      mergingHotel.booking_conditions,
     );
   }
   //   Longer name priority
@@ -131,11 +131,11 @@ export class MergeUtil {
   static mergeAmenities(currentHotel: Hotel, mergingHotel: Hotel): Amenities {
     const generalAmenities = MergeUtil.createUniqueSet(
       currentHotel.amenities.general,
-      mergingHotel.amenities.general
+      mergingHotel.amenities.general,
     );
     const roomAmenities = MergeUtil.createUniqueSet(
       currentHotel.amenities.room,
-      mergingHotel.amenities.room
+      mergingHotel.amenities.room,
     );
     return {
       general: generalAmenities,

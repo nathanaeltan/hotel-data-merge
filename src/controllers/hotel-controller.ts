@@ -16,7 +16,7 @@ export class HotelController {
       return res.status(200).json(hotels);
     } else if (requestBody.destination_id) {
       const hotels = await hotelService.getHotelsByDestinationId(
-        requestBody.destination_id
+        requestBody.destination_id,
       );
       return res.status(200).json(hotels);
     }

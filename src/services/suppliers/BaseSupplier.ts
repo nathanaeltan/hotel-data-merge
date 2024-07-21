@@ -30,7 +30,7 @@ export abstract class BaseSupplier {
     return hotelData.map(this.normalizeHotelData);
   }
 
-  protected normalizeHotelData = (hotel: SupplierHotelInput): Hotel =>{
+  protected normalizeHotelData = (hotel: SupplierHotelInput): Hotel => {
     return {
       id: this.getId(hotel),
       destination_id: this.getDestinationId(hotel),
@@ -41,7 +41,7 @@ export abstract class BaseSupplier {
       images: this.getImages(hotel),
       booking_conditions: this.getBookingConditions(hotel),
     };
-  }
+  };
 
   abstract getId(hotel: SupplierHotelInput): string;
   abstract getDestinationId(hotel: SupplierHotelInput): number;

@@ -19,13 +19,16 @@ describe("PatagoniaSupplier", () => {
       images: {
         rooms: [
           { url: "http://example.com/room1.jpg", description: "Room view" },
-          { url: "http://example.com/room2.jpg", description: "Another room view" }
+          {
+            url: "http://example.com/room2.jpg",
+            description: "Another room view",
+          },
         ],
         amenities: [
           { url: "http://example.com/spa.jpg", description: "Spa" },
-          { url: "http://example.com/wifi.jpg", description: "Free Wifi" }
-        ]
-      }
+          { url: "http://example.com/wifi.jpg", description: "Free Wifi" },
+        ],
+      },
     };
   });
 
@@ -53,7 +56,9 @@ describe("PatagoniaSupplier", () => {
   });
 
   test("getDescription should return the hotel's description", () => {
-    expect(patagoniaSupplier.getDescription(mockHotel)).toBe("A nice hotel in Patagonia");
+    expect(patagoniaSupplier.getDescription(mockHotel)).toBe(
+      "A nice hotel in Patagonia",
+    );
   });
 
   test("getAmenities should return the hotel's amenities", () => {
@@ -61,19 +66,24 @@ describe("PatagoniaSupplier", () => {
       general: ["Pool", "Free wifi"],
       room: [],
     };
-    expect(patagoniaSupplier.getAmenities(mockHotel)).toEqual(expectedAmenities);
+    expect(patagoniaSupplier.getAmenities(mockHotel)).toEqual(
+      expectedAmenities,
+    );
   });
 
   test("getImages should return the hotel's images", () => {
     const expectedImages = {
       rooms: [
         { link: "http://example.com/room1.jpg", description: "ROOM VIEW" },
-        { link: "http://example.com/room2.jpg", description: "ANOTHER ROOM VIEW" }
+        {
+          link: "http://example.com/room2.jpg",
+          description: "ANOTHER ROOM VIEW",
+        },
       ],
       site: [],
       amenities: [
         { link: "http://example.com/spa.jpg", description: "SPA" },
-        { link: "http://example.com/wifi.jpg", description: "FREE WIFI" }
+        { link: "http://example.com/wifi.jpg", description: "FREE WIFI" },
       ],
     };
     expect(patagoniaSupplier.getImages(mockHotel)).toEqual(expectedImages);

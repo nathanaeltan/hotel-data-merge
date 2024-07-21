@@ -68,4 +68,7 @@ export interface PaperfliesSupplierHotel {
 }
 
 // Supplier Input types
-export type SupplierHotelInput = AcmeSupplierHotel | PatagoniaSupplierHotel | PaperfliesSupplierHotel;
+export type SupplierHotelInput =
+  | AcmeSupplierHotel
+  | PatagoniaSupplierHotel
+  | PaperfliesSupplierHotel;
