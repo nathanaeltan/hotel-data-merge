@@ -4,7 +4,7 @@ info:
   version: 1.0.0
   description: API documentation for hotel data merger
 paths:
-  /api/hotel:
+  /api/hotels:
     post:
       tags:
         - Hotel
