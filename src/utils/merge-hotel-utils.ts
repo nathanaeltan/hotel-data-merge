@@ -20,34 +20,36 @@ export class MergeUtil {
       } else {
         const currentHotel = MergeUtil.hotelMap[id];
         const mergingHotel = hotel;
-        // Merge Names
-        MergeUtil.hotelMap[id].name = MergeUtil.mergeNames(
-          currentHotel,
-          mergingHotel,
-        );
-        // Merge Locations
-        MergeUtil.hotelMap[id].location = MergeUtil.mergeLocations(
-          currentHotel,
-          mergingHotel,
-        );
-        // Merge Descriptions
-        MergeUtil.hotelMap[id].description = MergeUtil.mergeDescriptions(
-          currentHotel,
-          mergingHotel,
-        );
-        // Merge amenities
-        MergeUtil.hotelMap[id].amenities = MergeUtil.mergeAmenities(
-          currentHotel,
-          mergingHotel,
-        );
-        // Merge Booking Conditions
-        MergeUtil.hotelMap[id].booking_conditions =
-          MergeUtil.mergeBookingConditions(currentHotel, mergingHotel);
-        // Merge Images
-        MergeUtil.hotelMap[id].images = MergeUtil.mergeImages(
-          currentHotel,
-          mergingHotel,
-        );
+
+        const hotelToBeMerged: Hotel = {
+          id: id,
+          destination_id: currentHotel.destination_id,
+          name: MergeUtil.mergeNames(
+            currentHotel,
+            mergingHotel,
+          ),
+          location: MergeUtil.mergeLocations(
+            currentHotel,
+            mergingHotel,
+          ),
+          description: MergeUtil.mergeDescriptions(
+            currentHotel,
+            mergingHotel,
+          ),
+          amenities:MergeUtil.mergeAmenities(
+            currentHotel,
+            mergingHotel,
+          ),
+          booking_conditions: MergeUtil.mergeBookingConditions(currentHotel, mergingHotel),
+          images:MergeUtil.mergeImages(
+            currentHotel,
+            mergingHotel,
+          ),
+        };
+
+        MergeUtil.hotelMap[id] = hotelToBeMerged;
+
+
       }
     });
     return Object.values(MergeUtil.hotelMap);

@@ -2,21 +2,24 @@ import { HotelRequest } from "../models/hotel-request";
 
 export function validateHotelRequest(
   hotelRequest: HotelRequest,
-): { error: string } | null {
-  if (hotelRequest.hotel_ids) {
+): { error: string[] } | null {
+  let hotelIdState = false;
+  let destinationIdState = false;
+  const errors: string[] = [];
+
     if (
-      !Array.isArray(hotelRequest.hotel_ids) ||
-      !hotelRequest.hotel_ids.every((id) => typeof id === "string")
+      hotelRequest.hotel_ids &&
+      Array.isArray(hotelRequest.hotel_ids) &&
+      hotelRequest.hotel_ids.every((id) => typeof id === "string") &&
+      hotelRequest.hotel_ids.length > 0
     ) {
-      return { error: "hotel_ids must be an array of strings." };
+      hotelIdState = true;
     }
+
+  if (hotelRequest.destination_id !== undefined && typeof hotelRequest.destination_id === "number") {
+      destinationIdState = true;
   }
 
-  if (hotelRequest.destination_id !== undefined) {
-    if (typeof hotelRequest.destination_id !== "number") {
-      return { error: "destination_id must be a number." };
-    }
-  }
+  return hotelIdState || destinationIdState ? null : { error: errors };
 
-  return null;
 }
